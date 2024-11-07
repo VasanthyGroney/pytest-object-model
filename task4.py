@@ -3,12 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-URL = "https://grocerymate.masterschool.com"
+URL = "https://grocerymate.masterschool.com/auth"
 
 
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
+    driver.maximize_window()
     driver.get(URL)
     yield driver
     driver.quit()
