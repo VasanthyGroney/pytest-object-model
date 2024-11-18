@@ -24,8 +24,8 @@ def test_registration(driver):
     full_name_input = driver.find_element(By.XPATH, "//input[@type='text']")
     email_address_input = driver.find_element(By.XPATH, "//input[@type='email']")
     password_input = driver.find_element(By.XPATH, "//input[@type='password']")
-    full_name_input.send_keys("Alan Kanth")
-    email_address_input.send_keys("ak@example.com")
+    full_name_input.send_keys("Allan Kanth")
+    email_address_input.send_keys("alk@example.com")
     password_input.send_keys("password123")
 
     submit_btn = driver.find_element(By.XPATH, "//button[@type='submit']")
@@ -34,6 +34,21 @@ def test_registration(driver):
 
     alert_div = driver.find_element(By.XPATH, "//div[@role='status']")
     assert alert_div.is_displayed() and alert_div.text
+
+def test_login(driver):
+    time.sleep(3)
+
+    email_address_input = driver.find_element(By.XPATH, "//input[@type='email']")
+    password_input = driver.find_element(By.XPATH, "//input[@type='password']")
+    email_address_input.send_keys("ak@example.com")
+    password_input.send_keys("password123")
+
+    login_btn = driver.find_element(By.XPATH, "//button[@type='submit']")
+    login_btn.click()
+    time.sleep(5)
+
+    dashboard_welcome = driver.find_element(By.XPATH, "//h1[contains(text(), 'Welcome')]")
+    assert dashboard_welcome.is_displayed()
 
 
 if __name__ == "__main__":
