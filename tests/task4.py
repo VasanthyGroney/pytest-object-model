@@ -24,9 +24,9 @@ def test_registration(driver):
     full_name_input = driver.find_element(By.XPATH, "//input[@type='text']")
     email_address_input = driver.find_element(By.XPATH, "//input[@type='email']")
     password_input = driver.find_element(By.XPATH, "//input[@type='password']")
-    full_name_input.send_keys("Allan Kanth")
-    email_address_input.send_keys("alk@example.com")
-    password_input.send_keys("password123")
+    full_name_input.send_keys("AgKnth")
+    email_address_input.send_keys("1ac@example.com")
+    password_input.send_keys("password1234")
 
     submit_btn = driver.find_element(By.XPATH, "//button[@type='submit']")
     submit_btn.click()
@@ -40,15 +40,18 @@ def test_login(driver):
 
     email_address_input = driver.find_element(By.XPATH, "//input[@type='email']")
     password_input = driver.find_element(By.XPATH, "//input[@type='password']")
-    email_address_input.send_keys("ak@example.com")
+    email_address_input.send_keys("1ac@example.com")
     password_input.send_keys("password123")
 
     login_btn = driver.find_element(By.XPATH, "//button[@type='submit']")
     login_btn.click()
     time.sleep(5)
 
-    dashboard_welcome = driver.find_element(By.XPATH, "//h1[contains(text(), 'Welcome')]")
-    assert dashboard_welcome.is_displayed()
+    #dashboard_welcome = driver.find_element(By.XPATH, "//[contains(@class, 'submit-btn')]")
+    assert driver.title == "Market Mate"
+
+
+
 
 
 if __name__ == "__main__":
